@@ -1,1 +1,101 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crave Street</title>
+
+  <script
+    async
+    crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_cHJlbWl1bS1iZWV0bGUtMzguY2xlcmsuYWNjb3VudHMuZGV2JA"
+    src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">Crave</div>
+
+    <nav class="nav">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('buy')">Buy</button>
+      <button onclick="showPage('cart')">Cart</button>
+      <button onclick="showPage('login')">Login</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <p class="eyebrow">STREETWEAR MARKET</p>
+        <h1>Welcome to Crave</h1>
+        <p class="hero-text">Urban pieces for men and women. Hoodies, jeans, tees, caps, glasses and more.</p>
+
+        <div class="hero-actions">
+          <button onclick="showPage('buy')">Buy Now</button>
+          <button onclick="showPage('login')">Login</button>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <input id="homeSearch" type="text" placeholder="Search hoodie, jeans, cap..." />
+        <button onclick="searchFromHome()">Search</button>
+      </div>
+
+      <div class="home-cats">
+        <button class="cat-box" onclick="quickGender('men')">Men</button>
+        <button class="cat-box" onclick="quickGender('women')">Women</button>
+        <button class="cat-box" onclick="quickCategory('hoodie')">Hoodies</button>
+        <button class="cat-box" onclick="quickCategory('jeans')">Jeans</button>
+      </div>
+    </section>
+
+    <section id="buy" class="page">
+      <div class="buy-top">
+        <h2>Buy</h2>
+
+        <div class="filters">
+          <input id="searchInput" type="text" placeholder="Search products..." />
+          <select id="genderFilter">
+            <option value="all">All Genders</option>
+            <option value="men">Men</option>
+            <option value="women">Women</option>
+          </select>
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="tshirt">T-Shirts</option>
+            <option value="hoodie">Hoodies</option>
+            <option value="jeans">Jeans</option>
+            <option value="pants">Pants</option>
+            <option value="cap">Caps</option>
+            <option value="glasses">Glasses</option>
+          </select>
+          <button onclick="applyFilters()">Search</button>
+        </div>
+      </div>
+
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <section id="product" class="page">
+      <div id="productDetail"></div>
+    </section>
+
+    <section id="cart" class="page">
+      <h2>Your Cart</h2>
+      <div id="cartItems"></div>
+      <div id="cartTotal" class="cart-total"></div>
+    </section>
+
+    <section id="login" class="page">
+      <h2>Login</h2>
+      <div id="clerk-login"></div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
