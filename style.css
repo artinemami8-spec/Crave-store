@@ -197,3 +197,23 @@ button,input,select{font:inherit}
 @media (max-width:800px){
   .product-layout{grid-template-columns:1fr}
   .hero h1{font-size:32px}
+.product-card{
+  position:relative;
+}
+.product-card::after{
+  content:"STREET";
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:rgba(0,0,0,.7);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  font-size:11px;
+  padding:6px 8px;
+  border-radius:999px;
+  letter-spacing:1px;
+}
+.logo::after{
+  content:" STREET";
+  color:#ff6b8e;
+}
