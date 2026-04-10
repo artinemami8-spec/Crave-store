@@ -157,6 +157,22 @@ function selectColor(color, el) {
 
 function addCurrentToCart() {
   if (!currentProduct) return;
+
+  if (window.Clerk && !Clerk.user) {
+    alert("Please log in first.");
+    showPage("login");
+    return;
+  }
+
+function addCurrentToCart() {
+  if (!currentProduct) return;
+
+  if (window.Clerk && !Clerk.user) {
+    alert("Please log in first.");
+    showPage("login");
+    return;
+  }
+
   cart.push({
     id: currentProduct.id,
     name: currentProduct.name,
