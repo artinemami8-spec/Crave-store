@@ -186,6 +186,12 @@ function addCurrentToCart() {
 }
 
 function quickAdd(id) {
+  if (window.Clerk && !Clerk.user) {
+    alert("Please log in first.");
+    showPage("login");
+    return;
+  }
+
   const product = products.find(p => p.id === id);
   cart.push({
     id: product.id,
@@ -198,7 +204,6 @@ function quickAdd(id) {
   renderCart();
   showPage("cart");
 }
-
 function removeCartItem(index) {
   cart.splice(index, 1);
   saveCart();
